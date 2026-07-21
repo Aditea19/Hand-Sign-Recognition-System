@@ -1,6 +1,6 @@
 # ✋ Hand Sign Recognition System v2.0
 
-> An intelligent, real-time sign language interpreter that translates hand gestures into text and spoken audio.
+**An intelligent, real-time sign language interpreter that translates hand gestures into text and spoken audio.**
 
 ---
 
