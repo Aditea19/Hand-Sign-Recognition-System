@@ -1,4 +1,4 @@
-# ✋ Hand Sign Recognition System
+# ✌️ Hand Sign Recognition System
 
 **An intelligent, real-time sign language interpreter that translates hand gestures into text and spoken audio.**
 
