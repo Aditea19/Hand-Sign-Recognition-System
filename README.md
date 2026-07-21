@@ -4,6 +4,29 @@
 
 ---
 
+## 📐 System Architecture
+
+The application runs on a pipeline mapping real-time video frames directly to mathematical and deep-learning classification nodes:
+
+```mermaid
+flowchart TD
+    Frame[Webcam Frame] -->|Detect Hand| Bbox[Get Bounding Box & Crop]
+    Bbox -->|Find Landmarks| Lm[Extract 21 Coordinate Points]
+    Lm -->|Offset & Plot| Skeleton[Draw Skeleton on White Canvas]
+    
+    Skeleton -->|Predict Groups| CNN[TensorFlow Model Inference]
+    Lm -->|Euclidean Distances| Heuristics[Geometric Rule Checks]
+    
+    CNN & Heuristics -->|Refine Character| FinalLetter[Final Character Output]
+    
+    FinalLetter -->|Hold 15 Frames| Commit[Append Letter / Space / Backspace]
+    Commit -->|Word Prefix| Predict[Get Word Autocompletions]
+    Commit -->|Press V| TTS[Asynchronous pyttsx3 Speech]
+    Commit -->|Press S or Next| Log[Save Timestamped Chat Log]
+```
+
+---
+
 ## 🌟 Core Features
 
 *   **⚡ Real-Time Gesture Tracking**: Instantly captures hand landmarks and gestures from your webcam feed.
